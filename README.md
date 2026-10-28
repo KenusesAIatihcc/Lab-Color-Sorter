@@ -52,8 +52,9 @@ Feel free to read these with your human eyes or feed them to your AI so it hallu
     - A short one sentence description of what the prompt was for. And where the project was before and after the prompt.
         - **This documentation needs to be detailed**.
 
-### Project documentation with prompts
-# Color Sorter Lab - Prompt Documentation
+# Project documentation with prompts
+
+# Color Sorter Lab 
 
 ## Project Goal
 Complete the machine-learning portion of the Color Sorter game by implementing `trainModel(updateProgress)` and `classify(color)` in `js/ML.js`.
@@ -98,7 +99,8 @@ Train the ml5 neural network and integrate training progress with the existing U
 **Before:**  
 Clicking Train Model could not create or train a classifier.
 
-**during**
+**During**
+
 I ran into an issue here, "Forbidden. File does not reside within a trusted folder" i was editing the file in the zip file, and so it couldnt run, i also had not trusted the folder in VS. I put the folder on the desktop after extracting it and trusted the folder in VS. 
 I could then opend index.html on the intergrated browser but i couldnt "train the data" listed error was 'Training failed: The highest priority backend 'webgpu' has not yet been initialized. Make sure to await tf.ready() or await tf.setBackend() before calling other methods', i had to do some light reading on how tensorflow is initiated and what webgpu was, chat suggested i add 'await tf.ready();' on top of the trainModel() which brought about another error 'Training failed: tf is not defined', after reading through what chat suggested to do this step had to be scrapped out because it needed other files to be edited, only the 'js/ML.js' file needed to be edited.
 Finally figured out that i had to use ml5's own backend setter, because as per the ml5 project documentation 'ml5.setBackend("webgl") or "cpu" may be required for neuralNetwork()', ml5 provides an appropriate backend API no need to use Tensorflow for that.
